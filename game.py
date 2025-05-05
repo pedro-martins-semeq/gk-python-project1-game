@@ -13,10 +13,7 @@ class Game:
         self.__report = str(self)
 
     def __str__(self) -> str:
-        return (
-            f"Game - Score: {self.get_score}\n"
-            + f"Calculator: \n{str(self.__calculator)}"
-        )
+        return f"Calculator: \n{str(self.__calculator)}"
 
     @property
     def get_score(self) -> int:
@@ -47,7 +44,7 @@ class Game:
             + f"{self.__calculator.value2} = "
         )
 
-    def update_report(self) -> None:
+    def refresh_report(self) -> None:
         self.__report = str(self)
 
     def _score(self) -> None:
@@ -71,7 +68,7 @@ def play():
 
     while True:
         clear()
-        game.update_report()
+        game.refresh_report()
 
         print(f"Score: {game.get_score}")
         answer: str = input(game.get_str_expression())
